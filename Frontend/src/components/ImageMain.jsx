@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Loading from './Loading';
+import '../assets/Main2.css';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 
 function ImageMain() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [question, setQuestion] = useState('');
-    const [answer, setAnswer] = useState('');
-    const [image, setImage] = useState('');
+    const [answer, setAnswer] = useState(null);
+    const [image, setImage] = useState('default.jpg');
     const [loading, setLoading] = useState(false);
-
+    const [showAnswer, setShowAnswer] = useState(false);
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setSelectedImage(file);
+        setImage(URL.createObjectURL(file));
     }
 
     const handleSubmit = async (event) => 
     {
-
         event.preventDefault();
         setLoading(true);
 
-    
         try {
             const formData = new FormData();
             formData.append('image', selectedImage);
             formData.append('question', question);
     
-            const response = await axios.post('http://localhost:3000/upload', formData, 
+            const response = await axios.post('https://backend2-0.vercel.app/upload', formData, 
             {
                 headers: 
                 {
@@ -41,15 +43,19 @@ function ImageMain() {
                 console.log('Image uploaded successfully');
                 console.log('Generated Text:', response.data);
                 setAnswer(response.data);
+                setShowAnswer(true); 
             } 
             else 
             {
                 console.error('Image upload failed');
+                
             }
         } 
         catch (error) 
         {
             console.error('Error:', error);
+            setAnswer('Error fetching data due to image size or some internal error');
+            setShowAnswer(true);
         }
         finally
         {
@@ -59,15 +65,23 @@ function ImageMain() {
 
     return (
         <>
+            <div className='container'>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
                 <input type="text" name="question" value={question} onChange={(event) => setQuestion(event.target.value)} />
                 <button type="submit">Upload</button>
             </form>
-            {loading && <Loading/>}
+          
             <div>
-                <p>{answer}</p>
+                {image && <img src={image} alt="image" style={{width:'600px',}} className='input-img'/>}
+                <div style={{textAlign:'left',display:'flex',justifyContent:'center'}}>
+                    {showAnswer && <ReactMarkdown remarkPlugins={[gfm]}>{answer}</ReactMarkdown>}
+                </div>
+               
             </div>
+            </div>
+        
+            {loading && <Loading/>}
         </>
     );
 }

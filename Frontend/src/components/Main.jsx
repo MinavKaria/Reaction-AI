@@ -37,7 +37,7 @@ const YourComponent = () => {
 
   return (
     <>
-    <div className='container'>
+    <div className='main-container'>
       <input
         type="text"
         value={inputData}
@@ -61,7 +61,7 @@ const YourComponent = () => {
         {loading ? <Loading/> : ''}
         
 
-        <div className={`response-container ${showResponse ? 'incoming' : ''}`} style={{ textAlign: 'left' }}>
+        <div className={`response-container ${showResponse ? 'incoming' : ''}`} style={{ textAlign: 'left',display:'flex',justifyContent:'center' }}>
         <ReactMarkdown remarkPlugins={[gfm]}>{response}</ReactMarkdown>
         </div>
 
