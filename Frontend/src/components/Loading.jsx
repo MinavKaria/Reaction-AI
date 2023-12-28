@@ -2,7 +2,7 @@ import React from 'react';
 
 function Loading() {
   return (
-    <div style={{marginLeft:'auto',marginRight:'auto'}}>
+    <div style={{marginLeft:'auto',marginRight:'auto',textAlign:'center'}}>
     <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" style={{ margin: 'auto', background: 'transparent', display: 'block' }} width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
       <g transform="rotate(0 50 50)">
         <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#fe718d">
@@ -65,6 +65,8 @@ function Loading() {
         </rect>
       </g>
     </svg>
+    <br />
+    <h2>Loading May Take Some Time</h2>
     </div>
   );
 }
