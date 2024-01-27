@@ -32,7 +32,7 @@ This will launch the backend server, allowing the frontend to communicate with i
 
 ## Accessing Gemini AI
 
-Once both the frontend and backend are running, open your web browser and navigate to the specified address (usually http://localhost:3000) to access Gemini AI.
+Once both the frontend and backend are running, open your web browser and navigate to the specified address (usually http://localhost:5173) to access Gemini AI.
 
 ## Troubleshooting
 
