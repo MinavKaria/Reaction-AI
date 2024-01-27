@@ -7,7 +7,8 @@ function Home() {
            
         }}>
             <img src="AI-Background.gif" alt="gif" className='home-background' style={{
-                 overflow:"hidden",
+                width:"100vw",
+                height:"100vh-150px"
             }}/>
         </div>
     );
