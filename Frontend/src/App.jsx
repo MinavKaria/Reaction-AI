@@ -1,23 +1,45 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import './App.css';
 import Header from './components/Header.jsx';
 import Main from './components/Main.jsx';
 import ImageMain from './components/ImageMain.jsx';
 import Home from './components/Home.jsx';
+import {createBrowserRouter,RouterProvider,Route,Link } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Header/>
+        <Home/>
+      </>
+    ),
+  },{
+    path: "/text",
+    element: (
+      <>
+        <Header/>
+        <Main/>
+      </>
+    ),
+  },{
+    path: "/image",
+    element: (
+      <>
+        <Header/>
+        <ImageMain/>
+      </>
+    ),
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
+ 
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/text" element={<Main />} />
-        <Route path="/image" element={<ImageMain />} />
-      </Routes>
-    </Router>
+   <>
+    <RouterProvider router={router} />
+   </>
   );
 }
 

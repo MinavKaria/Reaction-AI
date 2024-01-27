@@ -1,24 +1,25 @@
 import React from 'react';
 import '../assets/Navbar.css';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => 
-{
+
+const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="/" className="navbar-logo">
-          <p><span style={{fontSize:'xxx-large'}}>R </span> eaction. <span className='blink'>AI</span> </p>
-        </a>
+        <Link to="/" className="navbar-logo">
+          <p><span style={{ fontSize: 'xxx-large' }}>R </span> eaction. <span className='blink'>AI</span> </p>
+        </Link>
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="/text" className="nav-link" style={{fontSize:'larger'}}>
+            <Link to="/text" className="nav-link" style={{ fontSize: 'larger' }}>
               Text AI
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="/image" className="nav-link" style={{fontSize:'larger'}}>
+            <Link to="/image" className="nav-link" style={{ fontSize: 'larger' }}>
               Image AI
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

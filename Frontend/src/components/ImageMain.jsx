@@ -65,7 +65,10 @@ function ImageMain() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container' style={{
+                marginTop:"150px",
+                color:"black",
+            }}>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
                 <input type="text" name="question" value={question} onChange={(event) => setQuestion(event.target.value)} />
@@ -73,7 +76,7 @@ function ImageMain() {
             </form>
           
             <div>
-                {image && <img src={image} alt="image" style={{width:'600px',}} className='input-img'/>}
+                {image && <img src={image} alt="image" style={{width:'400px',}} className='input-img'/>}
                 <div style={{textAlign:'left',display:'flex',justifyContent:'center'}}>
                     {showAnswer && <ReactMarkdown remarkPlugins={[gfm]}>{answer}</ReactMarkdown>}
                 </div>

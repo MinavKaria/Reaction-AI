@@ -37,7 +37,10 @@ const YourComponent = () => {
 
   return (
     <>
-    <div className='main-container'>
+    <div className='main-container' style={{
+      marginTop:"150px",
+      color:"black",
+    }}>
       <input
         type="text"
         value={inputData}
