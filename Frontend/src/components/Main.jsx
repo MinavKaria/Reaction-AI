@@ -64,7 +64,7 @@ const YourComponent = () => {
         {loading ? <Loading/> : ''}
         
 
-        <div className={`response-container ${showResponse ? 'incoming' : ''}`} style={{ textAlign: 'left',display:'flex',justifyContent:'center' }}>
+        <div className={`response-container ${showResponse ? 'incoming' : ''}`} style={{ textAlign: 'left',display:'flex',justifyContent:'center',flexDirection:'column'}}>
         <ReactMarkdown remarkPlugins={[gfm]}>{response}</ReactMarkdown>
         </div>
 
